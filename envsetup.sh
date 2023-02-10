@@ -1968,8 +1968,29 @@ function showcommands() {
     fi
 }
 
+function showversion() {
+    local T=$(gettop)
+    
+    # current version
+    CAT_VERSION="v13"
+    CAT_NAME="Toyger"
+    CURRENT_DATE=$(date -u +%F)
+    # Aosp-Cat version
+    if [[ "en_US.UTF-8" == "$LANG" ]]; then
+        echo -e "*******************************"
+        echo -e "*         Cat Version         *"
+        echo -e "*=============================*"
+        echo -e "* Name: $CAT_NAME                *"
+        echo -e "* Version: $CAT_VERSION                *"
+        echo -e "* Date: $CURRENT_DATE            *"
+        echo -e "*******************************"
+    fi
+
+}
+
 validate_current_shell
 source_vendorsetup
 addcompletions
+showversion
 
 export ANDROID_BUILD_TOP=$(gettop)
